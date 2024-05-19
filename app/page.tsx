@@ -1,113 +1,121 @@
 import Image from "next/image";
+import bgImage from "@/public/background.webp"
+import { ArrowRight, BadgeCheck, GithubIcon, Linkedin, Mail, Palette, PictureInPicture } from "lucide-react";
+import Link from "next/link";
+import Badge from "@/components/Badge";
+
+import Twitter from "@/public/twitter.png"
+import Instagram from "@/public/instagram.png"
+import Telegram from "@/public/telegram.png"
+import Discord from "@/public/discord.png"
+import IconLinks from "@/components/IconLinks";
+import { useRouter } from "next/navigation";
+
+const tags = [
+  {
+    "icon": "🖥",
+    "text": " Developer",
+  },
+  {
+    "icon": "🔨",
+    "text": "Architect",
+  }
+  ,
+  {
+    "icon": "∞",
+    "text": "Devops",
+  },
+  {
+    "icon": "🦊",
+    "text": "Anime",
+  },
+  {
+    "icon": "🎵",
+    "text": "Music",
+  },
+]
+
+const links = [
+  { url: "https://twitter.com/__Inderjot", image: Twitter },
+  { url: "https://www.instagram.com/inderjot1112", image: Instagram },
+  { url: "https://telegram.me/inderjotx", image: Telegram },
+  { url: "https://discordapp.com/users/1061624989473845308", image: Discord },
+]
+
+
 
 export default function Home() {
+
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex h-screen w-full flex-col text-white  items-center">
+      <div className="w-full h-1/4  md:h-1/3  relative"  >
+        <Image src={bgImage} fill sizes="100vh" unoptimized alt="bg-image" className="absolute object-cover" ></Image>
+      </div>
+
+
+      <div className="flex  max-w-7xl px-2 md:px-0 mx-auto h-2/3  flex-col items-center">
+
+
+        <div className="h-32 w-32 relative flex items-center justify-center text-black overflow-hidden border-4 border-black  bg-white z-10 mt-[-50px] rounded-full">
+          <Image src={'alpha.svg'} fill sizes="100" unoptimized alt="bg-image" className="absolute object-cover p-5 rounded-full" ></Image>
         </div>
+        <div className="flex mt-1 items-center gap-1  ">
+          <h2 className="text-gray-300 text-2xl pl-5 inline-block ">Inderjot Singh</h2><span><BadgeCheck fill="#7F00FF" color="black" ></BadgeCheck> </span>
+        </div>
+
+        <div>
+          <Link className="text-gray-500 text-sm" href={'/'}>hi.inderjot.tech 👋🏻 </Link>
+        </div>
+
+
+        <div className="mt-1 text-gray-400">
+          Next JS, AWS and Typescript
+        </div>
+
+
+        <div className="flex  justify-center items-center  flex-wrap  gap-2 mt-6  ">
+          {
+            tags.map((tag) => (
+              <Badge {...tag} key={tag.icon} ></Badge>
+            ))
+          }
+        </div>
+
+
+        <div className="flex gap-4 mt-4">
+
+          <Link target="_blank" href={"https://www.linkedin.com/in/inderjot-singh-4a5404226"}>
+            <Linkedin fill="white" color="white" className="bg-blue-400 hover:scale-105 transition-all h-8 w-8 p-1 rounded-md"  ></Linkedin>
+          </Link>
+          {
+            links.map(({ url, image }) => (
+              <IconLinks url={url} key={url} image={image} />
+            ))
+          }
+          <Link target="_blank" href={"https://github.com/inderjotx"}>
+            <GithubIcon color="white" className="w-8 h-8 hover:scale-105 transition-all"></GithubIcon>
+          </Link>
+
+          <Link target="_blank" href={"mailto:inderjotsingh141@gmail.com"} >
+            <Mail color="white" className="h-8 w-8 hover:scale-105 transition-all " ></Mail>
+          </Link>
+
+        </div>
+
+        <Link href={"https://inderjot.tech"} target="_blank" className="h-16 mt-10
+        mx-auto group w-full flex  rounded-sm bg-zinc-900" >
+          <div className="w-1/5 flex items-center justify-center border-r border-zinc-800 h-full" >
+            <Palette className="w-8 h-8 group-hover:text-gray-400 transition-all" />
+          </div>
+          <div className="flex w-full px-4 items-center  justify-between "  >
+            <div className="group-hover:text-gray-400" >My Portfolio</div>
+            <ArrowRight className="group-hover:translate-x-0.5 group-hover:text-gray-400 transition-all" />
+          </div>
+        </Link>
+
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    </div>
+  )
 }

@@ -66,7 +66,7 @@ export default function Home() {
         </div>
 
         <div>
-          <Link className="text-gray-500 text-sm" href={'/'}>hi.inderjot.tech 👋🏻 </Link>
+          <Link className="text-gray-500 text-sm" href={'/'}>hi.inderjot.me 👋🏻 </Link>
         </div>
 
 
@@ -104,7 +104,7 @@ export default function Home() {
 
         </div>
 
-        <Link href={"https://inderjot.tech"} target="_blank" className="h-16 mt-10
+        <Link href={"https://inderjot.me"} target="_blank" className="h-16 mt-10
         mx-auto group w-full flex  rounded-sm bg-zinc-900" >
           <div className="w-1/5 flex items-center justify-center border-r border-zinc-800 h-full" >
             <Palette className="w-8 h-8 group-hover:text-gray-400 transition-all" />
